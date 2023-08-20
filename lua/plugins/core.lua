@@ -36,12 +36,34 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
-        "ruff-lsp",
+        "python-lsp-server",
         "clangd",
         "clang-format",
+        "rust-analyzer",
         "typescript-language-server",
         "bash-language-server",
       },
     },
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        -- pyright will be automatically installed with mason and loaded with lspconfig
+        clangd = {
+          cmd = { "clangd", "--offset-encoding=utf-16" },
+        },
+      },
+    },
+  },
+
+  {
+    "github/copilot.vim",
+    init = function()
+      vim.api.nvim_set_keymap("i", "<C-n>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+    end,
   },
 }
