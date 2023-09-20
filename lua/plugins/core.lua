@@ -61,9 +61,20 @@ return {
   },
 
   {
-    "github/copilot.vim",
-    init = function()
-      vim.api.nvim_set_keymap("i", "<C-n>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
-    end,
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = { accept = "<C-c>" },
+      },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
   },
 }
