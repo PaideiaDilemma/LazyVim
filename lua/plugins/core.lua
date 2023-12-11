@@ -15,6 +15,26 @@ return {
     },
   },
 
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {
+      modes = { insert = true, command = false, terminal = false },
+      mappings = {
+        ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][ \n\r]" },
+        ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\][ \n\r]" },
+        ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\][ \n\r]" },
+
+        [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\][ \n\r]" },
+        ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\][ \n\r]" },
+        ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\][ \n\r]" },
+
+        ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\][ \n\r]", register = { cr = false } },
+        ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^\\][ \n\r]", register = { cr = false } },
+        ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\][ \n\r]", register = { cr = false } },
+      },
+    },
+  },
   -- the opts function can also be used to change the default opts:
   {
     "nvim-lualine/lualine.nvim",
@@ -36,7 +56,8 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
-        "python-lsp-server",
+        "jedi-language-server",
+        "ruff",
         "clangd",
         "clang-format",
         "rust-analyzer",
