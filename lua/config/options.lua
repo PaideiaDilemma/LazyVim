@@ -9,6 +9,3 @@ local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 opt.spelllang = "en,de_de"
 opt.spellsuggest = "fast"
 opt.cursorline = false
-
--- Mardown autostart
-g.mkdp_auto_start = 1
