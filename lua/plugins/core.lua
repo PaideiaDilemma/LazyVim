@@ -116,12 +116,12 @@ return {
     config = function(_, opts)
       local map = vim.keymap.set
       local oil = require("oil")
+      local Util = require("lazyvim.util")
       oil.setup(opts)
 
-      map("n", "<leader>o", oil.toggle_float, { noremap = true, silent = true, desc = "Open Oil (cwd)" })
-
+      map("n", "<leader>o", oil.open, { noremap = true, silent = true, desc = "Open Oil (cwd)" })
       map("n", "<leader>O", function()
-        oil.toggle_float(vim.fn.expand("#"))
+        oil.open(Util.root())
       end, { noremap = true, silent = true, desc = "Open Oil (root dir)" })
     end,
   },
