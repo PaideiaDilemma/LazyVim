@@ -58,8 +58,6 @@ return {
         "shfmt",
         "jedi-language-server",
         "ruff",
-        "clangd",
-        "clang-format",
         "rust-analyzer",
         "typescript-language-server",
         "bash-language-server",
