@@ -50,6 +50,13 @@ return {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = {
+      automatic_installation = { exclude = { "clangd" } },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {},
