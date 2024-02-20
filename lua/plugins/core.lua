@@ -50,22 +50,6 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "jedi-language-server",
-        "ruff",
-        "rust-analyzer",
-        "typescript-language-server",
-        "bash-language-server",
-      },
-    },
-  },
-
-  {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {},
