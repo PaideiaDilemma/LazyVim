@@ -59,7 +59,13 @@ return {
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
-    opts = {},
+    opts = {
+      servers = {
+        clangd = {
+          mason = false,
+        },
+      },
+    },
   },
 
   {
