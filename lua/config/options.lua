@@ -11,3 +11,5 @@ opt.spellsuggest = "fast"
 opt.cursorline = false
 
 vim.lsp.set_log_level("off")
+
+LazyVim.lazygit.theme.selectedLineBgColor = { bg = "Normal" }
