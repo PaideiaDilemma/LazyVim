@@ -93,33 +93,45 @@ return {
 
   {
     "stevearc/oil.nvim",
-    opts = {
-      default_file_explorer = true,
-      win_options = {
-        signcolumn = "yes:2",
-      },
-      delete_to_trash = true,
-      lsp_file_methods = {
-        autosave_changes = true,
-      },
-      keymaps = {
-        ["<C-s>"] = false,
-        ["<C-h>"] = false,
-        ["<C-l>"] = false,
-        ["<leader>|"] = "actions.select_vsplit",
-        ["<leader><"] = "actions.select_vsplit",
-        ["<leader>-"] = "actions.select_split",
-        ["<F5>"] = "actions.refresh",
-        ["q"] = "actions.close",
-      },
-    },
+    dependencies = { "echasnovski/mini.icons" },
 
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function(_, opts)
+    config = function(_, _)
       local map = vim.keymap.set
       local oil = require("oil")
       local Util = require("lazyvim.util")
-      oil.setup(opts)
+      local detail = true
+
+      oil.setup({
+        default_file_explorer = true,
+        win_options = {
+          signcolumn = "yes:2",
+        },
+        delete_to_trash = true,
+        lsp_file_methods = {
+          autosave_changes = true,
+        },
+        keymaps = {
+          ["<C-s>"] = false,
+          ["<C-h>"] = false,
+          ["<C-l>"] = false,
+          ["<leader>|"] = "actions.select_vsplit",
+          ["<leader><"] = "actions.select_vsplit",
+          ["<leader>-"] = "actions.select_split",
+          ["<F5>"] = "actions.refresh",
+          ["q"] = "actions.close",
+          ["<leader>uo"] = {
+            desc = "Toggle file detail view",
+            callback = function()
+              detail = not detail
+              if detail then
+                require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+              else
+                require("oil").set_columns({ "icon" })
+              end
+            end,
+          },
+        },
+      })
 
       map("n", "<leader>o", oil.open, { noremap = true, silent = true, desc = "Open Oil (cwd)" })
       map("n", "<leader>O", function()
