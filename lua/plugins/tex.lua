@@ -1,5 +1,13 @@
 return {
   {
+    "chomosuke/typst-preview.nvim",
+    ft = "typst",
+    version = "1.*",
+    build = function()
+      require("typst-preview").update()
+    end,
+  },
+  {
     "iamcco/markdown-preview.nvim",
     build = function()
       vim.fn["mkdp#util#install"]()
