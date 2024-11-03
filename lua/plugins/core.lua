@@ -18,8 +18,8 @@ return {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
     opts = {
-      modes = { insert = true, command = false, terminal = false },
-      mappings = {
+      modes = { insert = false, command = false, terminal = false },
+      --[[ appings = {
         ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][ \n\r]" },
         ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\][ \n\r]" },
         ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\][ \n\r]" },
@@ -31,7 +31,8 @@ return {
         ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\][ \n\r]", register = { cr = false } },
         ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^\\][ \n\r]", register = { cr = false } },
         ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\][ \n\r]", register = { cr = false } },
-      },
+      }, ]]
+      --
     },
   },
   -- the opts function can also be used to change the default opts:
