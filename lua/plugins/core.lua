@@ -15,6 +15,19 @@ return {
   },
 
   {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      lazygit = {
+        theme = {
+          selectedLineBgColor = { bg = "Normal" }, -- set to `default` to have no background colour
+        },
+      },
+    },
+  },
+
+  {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
     opts = {
@@ -111,6 +124,9 @@ return {
         lsp_file_methods = {
           autosave_changes = true,
         },
+        float = {
+          padding = 11,
+        },
         keymaps = {
           ["<C-s>"] = false,
           ["<C-h>"] = false,
@@ -119,25 +135,29 @@ return {
           ["<leader><"] = "actions.select_vsplit",
           ["<leader>-"] = "actions.select_split",
           ["<F5>"] = "actions.refresh",
+          ["p"] = "actions.preview",
           ["q"] = "actions.close",
           ["<leader>uo"] = {
             desc = "Toggle file detail view",
             callback = function()
               detail = not detail
               if detail then
-                require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+                oil.set_columns({ "icon", "permissions", "size", "mtime" })
               else
-                require("oil").set_columns({ "icon" })
+                oil.set_columns({ "icon" })
               end
             end,
           },
         },
       })
+      oil.set_columns({ "icon", "permissions", "size", "mtime" })
+      oil.toggle_hidden()
 
       map("n", "<leader>o", oil.open, { noremap = true, silent = true, desc = "Open Oil (cwd)" })
       map("n", "<leader>O", function()
         oil.open(Util.root())
       end, { noremap = true, silent = true, desc = "Open Oil (root dir)" })
+      map("n", "<leader><Return>", oil.toggle_float, { noremap = true, silent = true, desc = "Open floating Oil" })
     end,
   },
 

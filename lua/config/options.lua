@@ -15,5 +15,3 @@ opt.cursorline = false
 opt.guifont = "FiraCode Nerd Font"
 
 vim.lsp.set_log_level("off")
-
-LazyVim.lazygit.theme.selectedLineBgColor = { bg = "Normal" }
