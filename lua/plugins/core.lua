@@ -125,7 +125,7 @@ return {
           autosave_changes = true,
         },
         float = {
-          padding = 11,
+          padding = 4,
         },
         keymaps = {
           ["<C-s>"] = false,
@@ -135,7 +135,7 @@ return {
           ["<leader><"] = "actions.select_vsplit",
           ["<leader>-"] = "actions.select_split",
           ["<F5>"] = "actions.refresh",
-          ["p"] = "actions.preview",
+          ["<leader>p"] = "actions.preview",
           ["q"] = "actions.close",
           ["<leader>uo"] = {
             desc = "Toggle file detail view",
