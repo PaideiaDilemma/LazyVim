@@ -106,104 +106,21 @@ return {
   },
 
   {
-    "stevearc/oil.nvim",
-    dependencies = { "echasnovski/mini.icons" },
-
-    config = function(_, _)
-      local map = vim.keymap.set
-      local oil = require("oil")
-      local Util = require("lazyvim.util")
-      local detail = true
-
-      oil.setup({
-        default_file_explorer = true,
-        win_options = {
-          signcolumn = "yes:2",
-        },
-        delete_to_trash = true,
-        lsp_file_methods = {
-          autosave_changes = true,
-        },
-        float = {
-          padding = 4,
-        },
-        keymaps = {
-          ["<C-s>"] = false,
-          ["<C-h>"] = false,
-          ["<C-l>"] = false,
-          ["<leader>|"] = "actions.select_vsplit",
-          ["<leader><"] = "actions.select_vsplit",
-          ["<leader>-"] = "actions.select_split",
-          ["<F5>"] = "actions.refresh",
-          ["<leader>p"] = "actions.preview",
-          ["q"] = "actions.close",
-          ["<leader>uo"] = {
-            desc = "Toggle file detail view",
-            callback = function()
-              detail = not detail
-              if detail then
-                oil.set_columns({ "icon", "permissions", "size", "mtime" })
-              else
-                oil.set_columns({ "icon" })
-              end
-            end,
-          },
-        },
-      })
-      oil.set_columns({ "icon", "permissions", "size", "mtime" })
-      oil.toggle_hidden()
-
-      map("n", "<leader>o", oil.open, { noremap = true, silent = true, desc = "Open Oil (cwd)" })
-      map("n", "<leader>O", function()
-        oil.open(Util.root())
-      end, { noremap = true, silent = true, desc = "Open Oil (root dir)" })
-      map("n", "<leader><Return>", oil.toggle_float, { noremap = true, silent = true, desc = "Open floating Oil" })
-    end,
-  },
-
-  {
-    "refractalize/oil-git-status.nvim",
-
-    dependencies = {
-      "stevearc/oil.nvim",
-    },
-
-    config = true,
-    event = "LazyFile",
-  },
-
-  {
-    "danarth/sonarlint.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    opts = {
-      server = {
-        cmd = {
-          "sonarlint-language-server",
-          -- Ensure that sonarlint-language-server uses stdio channel
-          "-stdio",
-          "-analyzers",
-          -- paths to the analyzers you need, using those for python and java in this example
-          vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
-          vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
-          vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
-        },
-        -- All settings are optional
-        settings = {
-          -- The default for sonarlint is {}, this is just an example
-          sonarlint = {
-            rules = {
-              ["typescript:S101"] = { level = "on", parameters = { format = "^[A-Z][a-zA-Z0-9]*$" } },
-              ["typescript:S103"] = { level = "on", parameters = { maximumLineLength = 180 } },
-              ["typescript:S106"] = { level = "on" },
-              ["typescript:S107"] = { level = "on", parameters = { maximumFunctionParameters = 7 } },
-            },
-          },
-        },
+    "echasnovski/mini.files",
+    keys = {
+      {
+        "<leader>o",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Open mini.files (Directory of Current File)",
       },
-      filetypes = {
-        "python",
-        "cpp",
+      {
+        "<leader>O",
+        function()
+          require("mini.files").open(vim.uv.cwd(), true)
+        end,
+        desc = "Open mini.files (cwd)",
       },
     },
   },
