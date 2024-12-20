@@ -76,6 +76,9 @@ return {
       servers = {
         clangd = {
           mason = false,
+          setup = {
+            fallbackFlags = { "-std=c++23" },
+          },
         },
       },
     },
