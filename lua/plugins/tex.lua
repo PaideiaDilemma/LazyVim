@@ -8,12 +8,6 @@ return {
     end,
   },
   {
-    "iamcco/markdown-preview.nvim",
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
-  {
     "lervag/vimtex",
     config = function()
       vim.g.vimtex_view_general_viewer = "okular"
