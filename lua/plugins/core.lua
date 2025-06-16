@@ -85,26 +85,7 @@ return {
   },
 
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    lazy = true,
-    opts = {
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = { accept = "<C-c>" },
-      },
-      panel = { enabled = false },
-      filetypes = {
-        markdown = true,
-        help = true,
-      },
-    },
-  },
-
-  {
-    "julienvincent/hunk.nvim",
+    "rafikdraoui/jj-diffconflicts",
     cmd = { "DiffEditor" },
     config = function()
       require("hunk").setup()
