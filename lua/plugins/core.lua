@@ -74,6 +74,9 @@ return {
     ---@class PluginLspOpts
     opts = {
       servers = {
+        zls = {
+          mason = false,
+        },
         clangd = {
           mason = false,
           setup = {

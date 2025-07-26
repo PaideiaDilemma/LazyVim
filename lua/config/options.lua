@@ -4,7 +4,7 @@
 --
 --
 local g = vim.g -- Global variables
-local opt = vim.opt -- Set options (global/buffer/windows-scoped)
+local opt = vim.o -- Set options (global/buffer/windows-scoped)
 
 g.terminal_emulator = os.getenv("TERM_PROGRAM") or "xterm"
 
