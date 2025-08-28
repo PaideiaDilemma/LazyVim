@@ -134,17 +134,18 @@ return {
   },
 
   {
-    "serenevoid/kiwi.nvim",
+
+    "echaya/neowiki.nvim",
     opts = {
-      {
-        name = "wiki",
-        path = "~/wiki",
+      wiki_dirs = {
+        -- neowiki.nvim supports both absolute and tilde-expanded paths
+        { name = "wiki", path = "~/wiki" },
       },
     },
     keys = {
-      { "<leader>kw", ':lua require("kiwi").open_wiki_index()<cr>', desc = "Open Wiki index" },
-      { "T", ':lua require("kiwi").todo.toggle()<cr>', desc = "Toggle Markdown Task" },
+      { "<leader>kw", "<cmd>lua require('neowiki').open_wiki()<cr>", desc = "Open Wiki" },
+      { "<leader>kW", "<cmd>lua require('neowiki').open_wiki_floating()<cr>", desc = "Open Wiki in Floating Window" },
+      { "<leader>kt", "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>", desc = "Open Wiki in Tab" },
     },
-    lazy = true,
   },
 }
