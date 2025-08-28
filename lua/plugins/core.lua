@@ -21,7 +21,8 @@ return {
     opts = {
       lazygit = {
         theme = {
-          selectedLineBgColor = { bg = "Normal" }, -- set to `default` to have no background colour
+          selectedLineBgColor = { bg = "Normal" },
+          activeBorderColor = { fg = "SnacksPickerMatch", bold = true },
         },
       },
     },
