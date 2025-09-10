@@ -8,7 +8,7 @@ local opt = vim.o -- Set options (global/buffer/windows-scoped)
 
 g.terminal_emulator = os.getenv("TERM_PROGRAM") or "xterm"
 
-opt.spelllang = "en,de_de"
+opt.spelllang = "en,de"
 opt.spellsuggest = "fast"
 opt.cursorline = false
 
