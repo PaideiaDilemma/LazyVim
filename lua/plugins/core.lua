@@ -29,7 +29,7 @@ return {
   },
 
   {
-    "echasnovski/mini.pairs",
+    "mini-nvim/mini.pairs",
     event = "VeryLazy",
     opts = {
       modes = { insert = false, command = false, terminal = false },
@@ -102,7 +102,7 @@ return {
   },
 
   {
-    "echasnovski/mini.files",
+    "mini-nvim/mini.files",
     opts = {
       windows = {
         preview = true,
