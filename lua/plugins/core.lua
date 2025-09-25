@@ -29,7 +29,7 @@ return {
   },
 
   {
-    "mini-nvim/mini.pairs",
+    "nvim-mini/mini.pairs",
     event = "VeryLazy",
     opts = {
       modes = { insert = false, command = false, terminal = false },
@@ -64,7 +64,7 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       automatic_installation = { exclude = { "clangd" } },
     },
@@ -102,7 +102,7 @@ return {
   },
 
   {
-    "mini-nvim/mini.files",
+    "nvim-mini/mini.files",
     opts = {
       windows = {
         preview = true,
