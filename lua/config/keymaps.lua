@@ -7,4 +7,17 @@
 --  "x" - visual mode
 --  "v" - visual and select mode
 
-vim.keymap.set("x", "p", "P", { silent = true })
+local map = vim.keymap.set
+
+map("x", "p", "P", { silent = true })
+
+-- jjui
+local ok, jjui = pcall(require, "additions/jjui")
+if ok and vim.fn.executable("jjui") == 1 then
+  map("n", "<leader>jj", function()
+    jjui({ cwd = LazyVim.root.git() })
+  end, { desc = "JJUi (Root Dir)" })
+  map("n", "<leader>jJ", function()
+    jjui()
+  end, { desc = "JJUi (cwd)" })
+end
