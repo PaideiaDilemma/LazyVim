@@ -103,6 +103,8 @@ return {
 
   {
     "nvim-mini/mini.files",
+    -- needs to override netrw as the default file browser
+    lazy = false,
     opts = {
       windows = {
         preview = true,
