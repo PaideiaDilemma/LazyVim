@@ -7,6 +7,7 @@ local g = vim.g -- Global variables
 local opt = vim.o -- Set options (global/buffer/windows-scoped)
 
 g.terminal_emulator = os.getenv("TERM_PROGRAM") or "xterm"
+g.snacks_animate = false
 
 opt.spelllang = "en,de"
 opt.spellsuggest = "fast"
